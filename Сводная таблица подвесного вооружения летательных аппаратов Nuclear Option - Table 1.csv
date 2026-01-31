@@ -1,0 +1,34 @@
+Самолет (Aircraft Name),Тип подвеса / Место (Hardpoint/Bay Location),Категория (Category),Доступное вооружение и количество (Compatible Loadout & Quantity),Источник
+CI-22 Cricket,Встроенное (Built-in),Пушки (Guns),2x 12.7мм Пулемет,1
+CI-22 Cricket,Внешние пилоны (External Hardpoints),Управляемое вооружение / Бомбы,"42x AGR-18 Lynchpin, 16x AGR-24 Kingpin, 16x AGM-48, 4x AGM-68, 10x PAB-125, 4x PAB-250, 6x IRM-S2, 2x ECM Pod","1, 2"
+T/A-30 Compass,Внутренний отсек (Internal Bay),Пушки / Ракеты / Бомбы,"1x 25мм Gunpod (960 сн.), 3x IRM-S2, 2x MMR-S3, 2x AGM-68, 1x GPO-500, 1x GPO-N, 4x PAB-125, 2x PAB-250, 2x PAB-250LR","1, 3"
+T/A-30 Compass,Внешние крыльевые пилоны (External Wing Pylons),Управляемое вооружение / Бомбы,"14x AGM-48, 28x AGR-18, 16x AGR-24, 10x MMR-S3, 2x AAM-29 Scythe, 12x PAB-80LR, 18x PAB-125, 5x GPO-500",1-3
+UH-90 Ibis,Дверные турели (Door Guns),Пушки / Гранатометы,2x 12.7мм Пулемет (600 сн.) или 2x 40мм Гранатомет (192 сн.),"1, 4"
+UH-90 Ibis,Фюзеляжные пилоны (Stub Pylons),Пушки / Управляемое вооружение / Защита,"1x 25мм Автопушка (250 сн.), 4x AGM-48, 8x AGR-24 Kingpin, 14x AGR-18 Lynchpin, 4x IRM-S1, 2x 25мм Flex Gunpod, 2x ECM Pod","1, 2, 4"
+UH-90 Ibis,Грузовой отсек (Cargo Bay),Спецгрузы / Ракеты,"Отделение пехоты (Infantry), 12x AGM-48 (роторная установка), 2x Hexhound UGV (SAM/GMG), 1x M12 Jackknife CEV, 1x Munitions Pallet, 1x Naval Supply Pallet","1, 2, 4, 5"
+UH-90 Ibis,Внешняя подвеска,Специальное (Special),1x Грузовой крюк (Slingload),4
+A-19 Brawler,Встроенное (Built-in),Пушки (Guns),2x 35мм Автопушка (720 сн.),"1, 6"
+A-19 Brawler,Центральный пилон (Central Pylon),Пушки (Guns),1x 30мм Роторная пушка (1200 сн.) или 1x 57мм Автопушка (150 сн.),"1, 6"
+A-19 Brawler,Фюзеляжные и крыльевые пилоны,Управляемое вооружение / Пушки / Бомбы,"16x AGM-68, 22x AGM-48, 56x AGR-24, 4x IRM-S2, 2x GPO-2P Auger, 14x GPO-500, 36x PAB-125, 22x PAB-80LR, 4x 20мм Gunpod, 6x PAB-250, 6x PAB-250LR","1, 2, 6"
+SAH-46 Chicane,Встроенное (Built-in),Пушки (Guns),1x 30мм Роторная пушка (750 сн.),1
+SAH-46 Chicane,Внутренние отсеки (Weapon Bays),Управляемое вооружение,"8x AGM-48 (всегда в отсеке), 1x IRM-S1 (опция)","7, 8"
+SAH-46 Chicane,Внешние пилоны (External Pylons),Управляемое вооружение / Защита,"20x ATP-1, 56x AGR-18, 32x AGR-24, 4x AGM-68, 14x IRM-S1, 2x MMR-S3, 2x 25мм Flex Gunpod, 2x ECM Pod","1, 2"
+FS-12 Revoker,Встроенное (Built-in),Пушки (Guns),1x 20мм Роторная пушка (750 сн.),"1, 9"
+FS-12 Revoker,Внутренние отсеки (Internal Bays),Ракеты / Бомбы (Stealth),"2x AAM-29 Scythe, 2x AAM-36 Scimitar, 2x MMR-S3, 3x IRM-S2, 1x AGM-68, 1x GPO-500, 1x GPO-N, 4x PAB-125, 2x PAB-250, 4x PAB-80LR","1, 9"
+FS-12 Revoker,Внешние пилоны (Wing Pylons),Управляемое вооружение / Бомбы,"6x AAM-36 Scimitar, 12x MMR-S3, 2x ARAD-116, 2x Tusko-B, 2x AGM-99, 4x AGR-24, 6x GPO-500, 1x GPO-2P Auger, 14x PAB-80LR","1, 2, 9"
+FS-20 Vortex,Встроенное (Internal Stealth),Пушки (Guns),1x 20мм Пушка (500 сн.),10
+FS-20 Vortex,Внутренние отсеки (Internal Bays),Ракеты / Бомбы (Stealth),"2x AAM-29 Scythe, 2x AAM-36 Scimitar, 3x MMR-S3, 4x IRM-S2, 2x AGM-68, 1x GPO-500, 1x GPO-N, 6x PAB-125, 2x PAB-250, 2x PAB-250LR, 6x PAB-80LR","1, 10"
+FS-20 Vortex,Внешние пилоны (External Pylons),Управляемое вооружение / Бомбы,"4x Tusko-B, 4x ARAD-116, 8x AGR-24, 6x AGM-99, 8x MMR-S3, 10x AAM-36 Scimitar, 20x PAB-80LR, 8x GPO-500, 1x GPO-2P","1, 2, 10"
+VL-49 Tarantula,Боковой порт (Side Mount),Пушки (Guns),1x 76мм Управляемая пушка (500 сн.),"1, 11-13"
+VL-49 Tarantula,Носовая / Половая турель,Пушки (Guns),1x 12.7мм Роторная турель,"1, 11, 12"
+VL-49 Tarantula,Спонсоны (Sponson Pylons),Ракеты / Пушки / Защита,"4x IRM-S1, 2x 25мм Flex Gunpod, 2x ECM Pod","1, 2, 11-13"
+VL-49 Tarantula,Грузовой / Брюшной отсек,Спецгрузы / Ракеты / Бомбы,"20x AGM-48 (кассета), 2x Demolition Bomb, 2x Munitions Container, 2x Naval Supply Container, 2x AFV6 (AA/APC/AT/IFV), 2x LCV25 (AT/SAM), 2x M12 Jackknife, 1x HLT-R Radar Truck","1, 2, 10-12"
+KR-67 Ifrit,Боковые отсеки (Heater Bays),Ракеты (Stealth),2x IRM-S2 (по 1 с каждой стороны),"1, 7, 10, 14"
+KR-67 Ifrit,Внутренние отсеки (4 отсека),Ракеты / Бомбы (Stealth),"6x AAM-36 Scimitar, 6x AAM-29 Scythe, 4x AGM-68, 2x GPO-N (250 кт), 4x GPO-500, 12x PAB-125, 6x PAB-250, Nx MMR-S3, Nx AGR-24, Nx ARAD-116","1, 13, 14"
+KR-67 Ifrit,Внешние пилоны (Wing Pylons),Управляемое вооружение / Бомбы,"4x AShM-300, 4x Tusko-B, 4x ARAD-116, 12x AGM-68, 14x MMR-S3, 24x PAB-80LR, 1x GPO-2P Auger, 12x GPO-500","1, 2, 14"
+EW-25 Medusa,Внутреннее / Верхний узел,Спецмодули (Special),"120 кВт Высокоэнергетический лазер, 1x Radome (РЛС 360°)","1, 15"
+EW-25 Medusa,Внутренний отсек (Weapon Bay),Ракеты / Бомбы,"2x ARAD-116, 1x AShM-300, 1x ALM-C450, 3x IRM-S2, 2x MMR-S3, 4x PAB-80LR, 2x PAB-250LR","1, 15"
+EW-25 Medusa,Крыльевые пилоны (Wing Pylons),Ракеты / РЭБ,"4x Radar Jamming Pod, 6x ARAD-116, 4x AShM-300, 2x MMR-S3, 6x PAB-80LR","1, 15"
+SFB-81 Darkreach,Внутренние основные отсеки (Inner Bays),Тяжелое вооружение,"1x Demolition Bomb, 3x GPO-2P, 2x ALND-4 (20кт), 2x Piledriver TBM, 1x ALM-C450, 1x AShM-300","1, 10, 13, 16"
+SFB-81 Darkreach,Внутренние разделенные (Inner Fwd/Rear),Ракеты / Бомбы,"8x AShM-300, 8x ALM-C450, 8x Tusko-B, 4x GPO-N, 12x GPO-500, 16x PAB-250, 16x PAB-250LR, Nx GPO-2P Auger","1, 10, 13, 16"
+SFB-81 Darkreach,Внешние отсеки (Outer Bays),Ракеты / Бомбы,"12x AShM-300, 12x ALM-C450, 16x Tusko-B, 6x ALND-4, 6x Piledriver TBM, 12x GPO-N, 28x GPO-500, 52x PAB-250, 52x PAB-250LR, 4x GPO-2P","1, 16"

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nuclear Option Tactical Database - Weapon Loadout Configurator">
+    <title>Nuclear Option: TACTICAL DB</title>
+
+    <!-- Favicon using emoji -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="crt-vignette"></div>
+
+    <header class="mb-8 text-center border-b border-emerald-900 pb-6 relative overflow-hidden">
+        <div class="scan-line hidden md:block"></div>
+        <h1
+            class="text-4xl md:text-6xl font-black text-white mb-2 tracking-widest drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">
+            NUCLEAR OPTION</h1>
+        <div class="flex justify-center gap-4 text-xs font-bold text-emerald-600 mb-3">
+            <span class="text-emerald-400"><i class="fas fa-database"></i> DATABASE V16.2</span>
+            <span>//</span>
+            <span class="text-teal-400">TACTICAL GREEN</span>
+            <span>//</span>
+            <span>UNCLASSIFIED</span>
+        </div>
+        <!-- Language Switcher -->
+        <div class="flex justify-center gap-1">
+            <button onclick="setLanguage('ru')" data-lang="ru"
+                class="lang-btn px-3 py-1 text-xs font-bold border border-emerald-700 bg-emerald-600 text-white transition hover:bg-emerald-700">
+                RU
+            </button>
+            <button onclick="setLanguage('en')" data-lang="en"
+                class="lang-btn px-3 py-1 text-xs font-bold border border-emerald-700 text-emerald-400 transition hover:bg-emerald-900">
+                EN
+            </button>
+            <button onclick="setLanguage('ua')" data-lang="ua"
+                class="lang-btn px-3 py-1 text-xs font-bold border border-emerald-700 text-emerald-400 transition hover:bg-emerald-900">
+                UA
+            </button>
+        </div>
+    </header>
+
+    <nav
+        class="flex flex-wrap justify-center gap-2 mb-8 sticky top-2 z-50 bg-black/80 backdrop-blur-md p-2 border border-emerald-900 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+        <a href="#config"
+            class="bg-emerald-950/50 hover:bg-emerald-900 text-emerald-400 px-4 py-2 border-b-2 border-emerald-600 font-bold text-sm shadow-md transition flex items-center gap-2">
+            <i class="fas fa-tools"></i> <span data-i18n="nav.config">КОНФИГУРАТОР</span>
+        </a>
+        <a href="#weapons"
+            class="bg-emerald-950/50 hover:bg-emerald-900 text-emerald-400 px-4 py-2 border-b-2 border-emerald-600 font-bold text-sm shadow-md transition flex items-center gap-2">
+            <i class="fas fa-fighter-jet"></i> <span data-i18n="nav.arsenal">АРСЕНАЛ</span>
+        </a>
+        <a href="guide.html"
+            class="bg-emerald-950/50 hover:bg-emerald-900 text-emerald-400 px-4 py-2 border-b-2 border-emerald-600 font-bold text-sm shadow-md transition flex items-center gap-2">
+            <i class="fas fa-book-open"></i> <span data-i18n="nav.guide">ГАЙД</span>
+        </a>
+    </nav>
+
+    <!-- CONFIGURATOR -->
+    <section id="config" class="max-w-full mx-auto mb-16 scroll-mt-24 relative z-10">
+        <div class="flex items-center gap-2 mb-4">
+            <div class="h-2 w-2 bg-emerald-500 shadow-[0_0_5px_#10b981]"></div>
+            <h2 class="text-2xl font-bold text-white" data-i18n="config.title">Loadout Configurator</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left: Aircraft -->
+            <div class="lg:col-span-4 space-y-4">
+                <div class="hud-panel p-4">
+                    <h3 class="text-emerald-400 font-bold mb-4 border-b border-emerald-900 pb-1 flex justify-between">
+                        <span data-i18n="config.carrier">1. НОСИТЕЛЬ</span>
+                        <i class="fas fa-plane"></i>
+                    </h3>
+                    <select id="plane-select" class="tac-select mb-4 font-bold text-lg text-emerald-100 font-mono"
+                        onchange="loadPlane()">
+                        <option value="none">-- ВЫБЕРИТЕ ЛА --</option>
+                        <optgroup label="САМОЛЕТЫ">
+                            <option value="cricket">CI-22 Cricket</option>
+                            <option value="compass">T/A-30 Compass</option>
+                            <option value="revoker">FS-12 Revoker</option>
+                            <option value="ifrit">KR-67 Ifrit</option>
+                            <option value="darkreach">SFB-81 Darkreach</option>
+                            <option value="medusa">EW-25 Medusa</option>
+                            <option value="vortex">FS-20 Vortex</option>
+                            <option value="brawler">A-19 Brawler</option>
+                        </optgroup>
+                        <optgroup label="ВЕРТОЛЕТЫ / VTOL">
+                            <option value="chicane">SAH-46 Chicane</option>
+                            <option value="ibis">UH-90 Ibis</option>
+                            <option value="tarantula">VL-49 Tarantula</option>
+                        </optgroup>
+                    </select>
+
+                    <div id="plane-img-container"
+                        class="h-56 bg-gradient-to-br from-black/80 via-emerald-950/40 to-black/80 mb-4 flex items-center justify-center border border-emerald-800/50 hidden relative overflow-hidden group rounded-xl">
+                        <!-- Simulated Grid Background -->
+                        <div class="absolute inset-0 opacity-20"
+                            style="background-image: radial-gradient(#059669 1px, transparent 1px); background-size: 25px 25px;">
+                        </div>
+                        <!-- Gradient overlay for smooth edges -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 z-10 pointer-events-none">
+                        </div>
+                        <img id="plane-img" src="" alt="Aircraft"
+                            class="max-h-full max-w-full object-contain relative z-5 drop-shadow-[0_0_20px_rgba(16,185,129,0.5)] transition-transform duration-300 group-hover:scale-105">
+                        <div
+                            class="absolute bottom-2 right-3 text-[10px] text-emerald-600/70 font-mono z-20 bg-black/40 px-2 py-0.5 rounded">
+                            TACTICAL VIEW</div>
+                        <!-- Corner accents -->
+                        <div
+                            class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-emerald-500/50 rounded-tl-xl">
+                        </div>
+                        <div
+                            class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-emerald-500/50 rounded-br-xl">
+                        </div>
+                    </div>
+
+                    <div id="stats-box" class="hidden space-y-3 text-sm bg-black/40 p-3 border border-emerald-900/50">
+                        <div class="flex justify-between border-b border-emerald-900 pb-1">
+                            <span class="text-emerald-600">МАКС. НАГРУЗКА</span>
+                            <span class="text-emerald-100 font-mono"><span id="val-max">0</span> кг</span>
+                        </div>
+                        <div class="flex justify-between border-b border-emerald-900 pb-1">
+                            <span class="text-emerald-600">ТЕКУЩИЙ ВЕС</span>
+                            <span class="text-emerald-100 font-mono"><span id="val-cur">0</span> кг</span>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] text-emerald-600 mb-1">
+                                <span>НАГРУЗКА</span>
+                                <span id="pct-label">0%</span>
+                            </div>
+                            <div class="w-full bg-emerald-900/30 h-2 overflow-hidden border border-emerald-900">
+                                <div id="bar-load"
+                                    class="h-full bg-emerald-500 w-0 transition-all duration-500 shadow-[0_0_10px_#10b981]">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="warn-msg"
+                            class="text-red-500 text-center font-bold hidden animate-pulse border border-red-900 bg-red-900/10 p-1 text-xs mt-2">
+                            <i class="fas fa-exclamation-triangle"></i> ПЕРЕГРУЗКА!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Pylons -->
+            <div class="lg:col-span-8">
+                <div class="hud-panel p-4 h-full">
+                    <h3
+                        class="text-emerald-400 font-bold mb-4 border-b border-emerald-900 pb-1 flex justify-between items-center">
+                        <span data-i18n="config.pylons">2. ТОЧКИ ПОДВЕСА</span>
+                        <div class="text-[10px] text-emerald-600 font-mono flex items-center gap-2">
+                            <div class="h-2 w-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_5px_#10b981]">
+                            </div>
+                            SYSTEMS ONLINE
+                        </div>
+                    </h3>
+
+
+                    <div id="pylons-area" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div
+                            class="col-span-full flex flex-col items-center justify-center text-emerald-800 py-20 border-2 border-dashed border-emerald-900 bg-black/20">
+                            <i class="fas fa-fighter-jet text-4xl mb-4 opacity-50"></i>
+                            <span class="font-bold" data-i18n="config.waiting">ОЖИДАНИЕ ВЫБОРА НОСИТЕЛЯ...</span>
+                        </div>
+                    </div>
+
+                    <!-- Save/Share Controls -->
+                    <div class="mt-4 pt-4 border-t border-emerald-900/50 flex flex-wrap gap-2">
+                        <div class="flex-1 flex gap-2">
+                            <input type="text" id="loadout-name-input" placeholder="Название лоадаута..."
+                                data-i18n-placeholder="save.placeholder"
+                                class="flex-1 bg-black/50 border border-emerald-800 text-emerald-100 px-3 py-2 text-sm outline-none focus:border-emerald-500 font-mono">
+                            <button onclick="saveCurrentLoadout(document.getElementById('loadout-name-input').value)"
+                                class="bg-emerald-900/50 hover:bg-emerald-800 text-emerald-400 px-4 py-2 text-xs font-bold border border-emerald-700 transition">
+                                <i class="fas fa-save"></i> <span data-i18n="save.button">СОХРАНИТЬ</span>
+                            </button>
+                        </div>
+                        <button id="share-btn" onclick="copyShareURL()"
+                            class="bg-teal-900/50 hover:bg-teal-800 text-teal-400 px-4 py-2 text-xs font-bold border border-teal-700 transition">
+                            <i class="fas fa-share-alt"></i> <span data-i18n="share.button">ПОДЕЛИТЬСЯ</span>
+                        </button>
+                    </div>
+
+                    <!-- Saved Loadouts -->
+                    <div class="mt-4">
+                        <div class="text-[10px] text-emerald-600 font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-folder"></i> <span data-i18n="loadouts.title">МОИ ЛОАДАУТЫ</span>
+                        </div>
+                        <div id="saved-loadouts-list"
+                            class="bg-black/30 border border-emerald-900/50 max-h-32 overflow-y-auto">
+                            <div class="text-emerald-700 text-xs p-2" data-i18n="loadouts.empty">Нет сохранённых
+                                лоадаутов</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SMART FILTER DATABASE -->
+    <section id="weapons" class="max-w-full mx-auto mb-16 scroll-mt-24 relative z-10">
+        <div class="hud-panel p-4">
+
+            <!-- Top Controls -->
+            <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4 border-b border-emerald-900 pb-4">
+                <h2 class="text-xl text-white font-bold flex items-center gap-2">
+                    <span class="text-emerald-500 text-2xl drop-shadow-[0_0_5px_rgba(16,185,129,0.8)]"><i
+                            class="fas fa-folder-open"></i></span>
+                    <div>
+                        <span data-i18n="arsenal.title">ПОЛНЫЙ АРСЕНАЛ</span>
+                        <div class="text-[10px] text-emerald-600 font-normal tracking-normal"
+                            data-i18n="arsenal.subtitle">ВСЕ ТИПЫ ВООРУЖЕНИЯ</div>
+                    </div>
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+                    <div class="relative w-full">
+                        <i class="fas fa-search absolute left-3 top-3 text-emerald-700 text-xs"></i>
+                        <input type="text" id="search-input" placeholder="ПОИСК..."
+                            data-i18n-placeholder="arsenal.search"
+                            class="bg-black/50 border border-emerald-800 text-emerald-100 pl-8 pr-3 py-2 text-sm w-full focus:border-emerald-500 outline-none uppercase font-mono shadow-inner"
+                            onkeyup="runFilters()">
+                    </div>
+                    <button onclick="toggleFilterPanel()"
+                        class="bg-emerald-900/30 border border-emerald-700 px-4 py-2 text-xs font-bold text-emerald-400 hover:bg-emerald-800 transition whitespace-nowrap shadow-[0_0_10px_rgba(16,185,129,0.1)]">
+                        <i class="fas fa-filter"></i> <span data-i18n="arsenal.filters">ФИЛЬТРЫ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- COLLAPSIBLE FILTER PANEL -->
+            <div id="filter-panel" class="mb-6 bg-black/40 border border-emerald-800 p-4 shadow-inner hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <!-- 1. Category -->
+                    <div>
+                        <h4 class="text-[10px] text-emerald-400 font-bold mb-2 border-b border-emerald-900 pb-1"
+                            data-i18n="filter.category">
+                            КАТЕГОРИЯ</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="filter-chip" onclick="toggleChip('cat', 'a2a', this)">В-В (A2A)</button>
+                            <button class="filter-chip" onclick="toggleChip('cat', 'a2g', this)">В-З (A2G)</button>
+                            <button class="filter-chip" onclick="toggleChip('cat', 'bomb', this)">БОМБЫ</button>
+                            <button class="filter-chip" onclick="toggleChip('cat', 'gun', this)">ПУШКИ</button>
+                            <button class="filter-chip" onclick="toggleChip('cat', 'surf', this)">НАЗЕМНОЕ</button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Guidance -->
+                    <div>
+                        <h4 class="text-[10px] text-teal-400 font-bold mb-2 border-b border-teal-900 pb-1"
+                            data-i18n="filter.guidance">НАВЕДЕНИЕ
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="filter-chip" onclick="toggleChip('guid', 'radar', this)">РАДАР</button>
+                            <button class="filter-chip" onclick="toggleChip('guid', 'ir', this)">ИК (IR)</button>
+                            <button class="filter-chip" onclick="toggleChip('guid', 'opt', this)">ОПТИКА</button>
+                            <button class="filter-chip" onclick="toggleChip('guid', 'gps', this)">GPS/INS</button>
+                            <button class="filter-chip" onclick="toggleChip('guid', 'laser', this)">ЛАЗЕР</button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Target -->
+                    <div>
+                        <h4 class="text-[10px] text-green-400 font-bold mb-2 border-b border-green-900 pb-1"
+                            data-i18n="filter.targets">ЦЕЛИ</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="filter-chip" data-tgt="air"
+                                onclick="toggleChip('tgt', 'air', this)">ВОЗДУХ</button>
+                            <button class="filter-chip" data-tgt="tank"
+                                onclick="toggleChip('tgt', 'tank', this)">ТЕХНИКА</button>
+                            <button class="filter-chip" data-tgt="ship"
+                                onclick="toggleChip('tgt', 'ship', this)">ФЛОТ</button>
+                            <button class="filter-chip" data-tgt="rad"
+                                onclick="toggleChip('tgt', 'rad', this)">РАДАР</button>
+                            <button class="filter-chip" data-tgt="bld"
+                                onclick="toggleChip('tgt', 'bld', this)">ЗДАНИЯ</button>
+                        </div>
+                    </div>
+
+                    <!-- 4. Compatibility -->
+                    <div>
+                        <h4 class="text-[10px] text-gray-500 font-bold mb-2 border-b border-gray-800 pb-1"
+                            data-i18n="filter.compat">СОВМЕСТИМОСТЬ
+                        </h4>
+                        <select id="compat-select" class="tac-select text-xs p-2 mb-2 font-mono"
+                            onchange="runFilters()">
+                            <option value="all">-- ЛЮБОЙ НОСИТЕЛЬ --</option>
+                            <optgroup label="САМОЛЕТЫ">
+                                <option value="cricket">CI-22 Cricket</option>
+                                <option value="compass">T/A-30 Compass</option>
+                                <option value="revoker">FS-12 Revoker</option>
+                                <option value="ifrit">KR-67 Ifrit</option>
+                                <option value="darkreach">SFB-81 Darkreach</option>
+                                <option value="medusa">EW-25 Medusa</option>
+                                <option value="vortex">FS-20 Vortex</option>
+                                <option value="brawler">A-19 Brawler</option>
+                            </optgroup>
+                            <optgroup label="ВЕРТОЛЕТЫ">
+                                <option value="chicane">SAH-46 Chicane</option>
+                                <option value="ibis">UH-90 Ibis</option>
+                                <option value="tarantula">VL-49 Tarantula</option>
+                            </optgroup>
+                        </select>
+                        <button onclick="resetFilters()"
+                            class="text-[10px] text-red-400 hover:text-white hover:bg-red-900/40 uppercase font-bold border border-red-900 bg-red-900/10 px-2 py-1 w-full transition">
+                            <i class="fas fa-times"></i> <span data-i18n="arsenal.reset">СБРОСИТЬ ВСЕ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto border border-emerald-900">
+                <table class="mil-table w-full">
+                    <thead>
+                        <tr>
+                            <th class="w-1/6" data-i18n="table.name">НАЗВАНИЕ</th>
+                            <th class="w-24" data-i18n="table.type">ТИП</th>
+                            <th class="w-1/6" data-i18n="table.guidance">НАВЕДЕНИЕ</th>
+                            <th class="w-32" data-i18n="table.specs">ТТХ (Дал/Скор)</th>
+                            <th class="w-1/6 text-emerald-400" data-i18n="table.target">ЦЕЛЬ</th>
+                            <th class="text-emerald-600" data-i18n="table.desc">СОВМЕСТИМОСТЬ / ОПИСАНИЕ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="db-body">
+                        <!-- JS GENERATED -->
+                    </tbody>
+                </table>
+                <div id="no-results"
+                    class="hidden p-12 text-center text-emerald-800 font-mono border-t border-emerald-900 bg-black/20">
+                    <i class="fas fa-search-minus text-3xl mb-2"></i><br>
+                    <span data-i18n="arsenal.no_results">НЕТ СОВПАДЕНИЙ</span>
+                </div>
+            </div>
+            <div class="mt-2 text-[10px] text-emerald-800 text-right font-mono">DATA SOURCE: FIELD MANUAL 16.0</div>
+        </div>
+    </section>
+
+
+
+    <!-- LOAD SCRIPTS -->
+    <script src="js/data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
